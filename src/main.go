@@ -181,6 +181,56 @@ func withBreakAndContinue() {
 		fmt.Println(i)
 	}
 }
+
+func arrays_() {
+
+	var array [5]int // declaracion de un array
+	array[0] = 1
+	array[1] = 2
+	fmt.Println(
+		array,
+		len(array), // tamaño del array
+		cap(array), // capacidad del array
+	)
+
+}
+
+func slices_() {
+	// Se puede acceder a un slice especificando dos índices, un límite bajo y uno alto, separados por dos puntos slice[low : high]. Esto selecciona un rango semiabierto que incluye el primer elemento, pero excluye el último.
+
+	var slice []int // declaracion de un slice
+	slice = append(slice, 1, 2, 3, 4, 5)
+	fmt.Println(
+		slice,
+		len(slice), // tamaño del slice
+		cap(slice), // capacidad del slice
+	)
+	fmt.Println(
+		slice[2:],
+		len(slice[2:]), // tamaño del slice
+		cap(slice[2:]), // capacidad del slice
+		slice[2:][1],
+		slice[2:][2],
+		slice[0:2],
+		len(slice[0:2]), // capacidad del slice
+		slice[2:4],
+		slice[0:3],
+		slice[4:],
+	)
+
+	//nuevo slice
+	slice2 := []int{31, 24, 35, 45, 54}
+	fmt.Println(slice2)
+	newSlice := append(slice, slice2...) // append agrega un slice al final del slice
+	fmt.Println("Nuevo slice", newSlice)
+
+}
+
+func arrays_and_slices() {
+	// arrays_()
+	slices_()
+}
+
 func main() {
-	withBreakAndContinue()
+	arrays_and_slices()
 }
